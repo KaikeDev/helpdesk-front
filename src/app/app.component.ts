@@ -48,9 +48,7 @@ import { NavComponent } from './components/nav/nav.component';
     MatCardModule,
   ],
   template: `
-    <h1>Ola</h1>
-
-    <button mat-raised-button>Basic</button>
+   
     <router-outlet />
   `,
 })
