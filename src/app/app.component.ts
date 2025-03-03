@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Para realizar requisições HTTP
 import { HttpClientModule } from '@angular/common/http';
 
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -46,9 +46,10 @@ import { NavComponent } from './components/nav/nav.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    RouterModule
   ],
   template: `
-   
+
     <router-outlet />
   `,
 })
