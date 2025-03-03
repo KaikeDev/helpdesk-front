@@ -1,0 +1,15 @@
+:host{
+  .card{
+    width: 90%;
+    margin: auto;
+
+   background-color: rgb(235, 235, 235);
+  }
+  img{
+    height:20rem;
+  }
+
+  mat-card-content p{
+    margin-top:20px;
+  }
+}
