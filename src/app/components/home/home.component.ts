@@ -4,7 +4,7 @@ import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatCardTitle, MatCardContent, MatCardActions, MatCard, MatCardHeader, MatCardSubtitle],
+  imports: [MatCardTitle, MatCardContent, MatCard, MatCardHeader],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
