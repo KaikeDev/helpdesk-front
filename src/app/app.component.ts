@@ -23,6 +23,8 @@ import { MatCardModule } from '@angular/material/card';
 
 // Components
 import { NavComponent } from './components/nav/nav.component';
+import { timeout } from 'rxjs';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -46,7 +48,8 @@ import { NavComponent } from './components/nav/nav.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
-    RouterModule
+    RouterModule 
+
   ],
   template: `
 
