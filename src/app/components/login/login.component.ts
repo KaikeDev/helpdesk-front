@@ -48,7 +48,6 @@ export class LoginComponent {
       (resposta) => {
         const authorization = resposta.headers.get('Authorization');
         if (authorization) {
-          this.toast.info(authorization);
           this.service.successfulLogin(authorization.substring(7));
           this.router.navigate(['']);
         }
