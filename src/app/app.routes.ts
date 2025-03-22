@@ -3,20 +3,20 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '',
-    component: NavComponent,
-    children: [ { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redireciona para home
+    component: NavComponent, canActivate: [authGuard], //  com o canActivate ele não deixa acessar as rotas filha sem acessar o NAV primeiro
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redireciona para home
       { path: 'home', component: HomeComponent },
-      { path: 'tecnicos', component: TecnicoListComponent }
-
+      { path: 'tecnicos', component: TecnicoListComponent },
     ],
-
   },
 ];
