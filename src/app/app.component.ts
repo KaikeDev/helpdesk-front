@@ -25,6 +25,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NavComponent } from './components/nav/nav.component';
 import { timeout } from 'rxjs';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
 @Component({
   selector: 'app-root',
@@ -48,9 +49,10 @@ import { ToastrModule } from 'ngx-toastr';
     MatIconModule,
     MatListModule,
     MatCardModule,
-    RouterModule 
+    RouterModule
 
   ],
+  providers:[AuthInterceptorProvider],
   template: `
 
     <router-outlet />
