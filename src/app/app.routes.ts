@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './auth/auth.guard';
+import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redireciona para home
       { path: 'home', component: HomeComponent },
       { path: 'tecnicos', component: TecnicoListComponent },
+      {path: 'tecnicos/create', component: TecnicoCreateComponent}
     ],
   },
 ];
