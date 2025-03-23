@@ -1,37 +1,51 @@
-import { DataSource } from '@angular/cdk/collections';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Tecnico } from '../../../models/tecnico';
+import { TecnicoService } from '../../../services/tecnico.service';
+import { AuthInterceptorProvider } from '../../../interceptors/auth.interceptor';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-tecnico-list',
   standalone: true,
-  imports: [MatPaginator, MatTableModule],
+  providers: [AuthInterceptorProvider],
+  imports: [MatPaginator, MatTableModule, MatFormField, MatLabel, FormsModule, MatInput],
   templateUrl: './tecnico-list.component.html',
-  styleUrl: './tecnico-list.component.scss'
+  styleUrl: './tecnico-list.component.scss',
 })
-export class TecnicoListComponent implements AfterViewInit{
+export class TecnicoListComponent implements OnInit {
+  constructor(private service: TecnicoService) {}
 
-  ELEMENT_DATA:Tecnico[] = [
-    {
-      id: 1,
-      nome: 'Kaike Tuerpe',
-      cpf: '112.030.345-98',
-      email: 'kaike@gmail.com',
-      senha: '1234',
-      perfil: ['0'],
-      dataCriacao: '03/03/2025'
-    }
-  ]
+  ELEMENT_DATA: Tecnico[] = [];
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes'];
+  displayedColumns: string[] = [
+    'position',
+    'name',
+    'weight',
+    'symbol',
+    'acoes',
+  ];
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
 
+  ngOnInit(): void {
+    this.findAll();
+  }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  findAll() {
+    this.service.findAll().subscribe((resposta) => {
+      this.ELEMENT_DATA = resposta; // pega a resposta do findAll(que está no service) e coloca dentro do array elemente_data
+      this.dataSource = new MatTableDataSource<Tecnico>(resposta);
+      this.dataSource.paginator = this.paginator;
+    });
   }
 
+  // FILTRO DE BUSCA DA TABELA
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

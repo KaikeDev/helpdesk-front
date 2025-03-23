@@ -53,7 +53,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
   ],
   providers:[AuthInterceptorProvider],
-  template: `
+    template: `
 
     <router-outlet />
   `,
