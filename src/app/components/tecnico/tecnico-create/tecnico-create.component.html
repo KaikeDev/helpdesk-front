@@ -9,15 +9,17 @@
     />
 
     <section class="section">
-      <mat-checkbox class="margin" color="primary">Admin</mat-checkbox>
-      <mat-checkbox class="margin" color="primary">Cliente</mat-checkbox>
-      <mat-checkbox class="margin" color="primary">Técnico</mat-checkbox>
+      <mat-checkbox (click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
+      <mat-checkbox (click)="addPerfil(1)" class="margin" color="primary">Cliente</mat-checkbox>
+      <mat-checkbox (click)="addPerfil(2)" class="margin" color="primary">Técnico</mat-checkbox>
     </section>
 
     <p>
       <mat-form-field class="fullWidth" appearance="fill">
         <mat-label>Nome</mat-label>
         <input
+          [(ngModel)]="tecnico.nome"
+          name="nome"
           [formControl]="nome"
           required
           matInput
@@ -30,6 +32,8 @@
       <mat-form-field class="fullWidth" appearance="fill">
         <mat-label>CPF</mat-label>
         <input
+          [(ngModel)]="tecnico.cpf"
+          name="cpf"
           [formControl]="cpf"
           required
           matInput
@@ -43,6 +47,8 @@
       <mat-form-field class="fullWidth" appearance="fill">
         <mat-label>Email</mat-label>
         <input
+          [(ngModel)]="tecnico.email"
+          name="email"
           [formControl]="email"
           required
           matInput
@@ -55,6 +61,8 @@
       <mat-form-field class="fullWidth" appearance="fill">
         <mat-label>Senha</mat-label>
         <input
+          [(ngModel)]="tecnico.senha"
+          name="senha"
           [formControl]="senha"
           required
           type="password"
@@ -64,7 +72,7 @@
         <mat-icon matSuffix>lock</mat-icon>
       </mat-form-field>
     </p>
-    <button
+    <button (click)="createTecnico()"
       [disabled]="!validaCampos()"
       class="container mat-elevation-z4"
       mat-flat-button
