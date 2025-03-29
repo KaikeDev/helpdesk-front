@@ -69,6 +69,8 @@ export class TecnicoCreateComponent {
     );
   }
 
+   
+
   addPerfil(perfil: any): void {
 
      // para não adicionar mais de uma vez o mesmo perfil

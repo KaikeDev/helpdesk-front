@@ -8,12 +8,13 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tecnico-list',
   standalone: true,
   providers: [AuthInterceptorProvider],
-  imports: [MatPaginator, MatTableModule, MatFormField, MatLabel, FormsModule, MatInput, RouterLink],
+  imports: [MatPaginator, MatTableModule, MatFormField, MatLabel, FormsModule, MatInput, RouterLink, MatIcon],
   templateUrl: './tecnico-list.component.html',
   styleUrl: './tecnico-list.component.scss',
 })
