@@ -1,1 +1,43 @@
-<p>chamado-create works!</p>
+<div class="container mat-elevation-z8">
+  <h1>Criando Chamado</h1>
+  <img src="assets/img/chamado-create.svg" alt="Chamado create image" />
+
+  <form class="form">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Título do chamado</mat-label>
+      <input
+        [(ngModel)]="chamado.titulo"
+        name="titulo"
+
+        required
+        matInput
+        placeholder="Ex. Trocar bateria de notebook"
+      />
+    </mat-form-field>
+  </form>
+
+  <div class="status-prioridade">
+    <mat-form-field appearance="outline">
+       <mat-label>Selecione um status</mat-label>
+       <mat-select
+       [(ngModel)]="chamado.status"
+       name="status"
+       required>
+         <mat-option value="0">ABERTO</mat-option>
+         <mat-option value="1">EM ANDAMENTO</mat-option>
+         <mat-option value="2">ENCERRADO</mat-option>
+       </mat-select>
+     </mat-form-field>
+
+     <mat-form-field appearance="outline">
+      <mat-label>Selecione uma prioridade</mat-label>
+      <mat-select
+      [(ngModel)]="chamado.prioridade"
+      name="prioridade"
+      required>
+        <mat-option value="0">BAIXA</mat-option>
+        <mat-option value="1">MÉDIA</mat-option>
+        <mat-option value="2">ALTA</mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
