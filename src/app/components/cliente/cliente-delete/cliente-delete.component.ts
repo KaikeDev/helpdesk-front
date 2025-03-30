@@ -22,7 +22,7 @@ import { ToastrService } from 'ngx-toastr';
     MatInputModule,
     RouterLink,
     ReactiveFormsModule,
-    NgxMaskDirective,],
+    ],
   templateUrl: './cliente-delete.component.html',
   styleUrl: './cliente-delete.component.scss'
 })
