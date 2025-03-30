@@ -12,6 +12,7 @@ import { ClienteCreateComponent } from './components/cliente/cliente-create/clie
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
+import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 
 export const routes: Routes = [
   {
@@ -20,23 +21,23 @@ export const routes: Routes = [
   },
   {
     path: '',
-    component: NavComponent, canActivate: [authGuard], //  com o canActivate ele não deixa acessar as rotas filha sem acessar o NAV primeiro
+    component: NavComponent,
+    canActivate: [authGuard], //  com o canActivate ele não deixa acessar as rotas filha sem acessar o NAV primeiro
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redireciona para home
       { path: 'home', component: HomeComponent },
       { path: 'tecnicos', component: TecnicoListComponent },
-      {path: 'tecnicos/create', component: TecnicoCreateComponent},
-      {path: 'tecnicos/update/:id', component: TecnicoUpdateComponent},
-      {path: 'tecnicos/delete/:id', component: TecnicoDeleteComponent},
-
+      { path: 'tecnicos/create', component: TecnicoCreateComponent },
+      { path: 'tecnicos/update/:id', component: TecnicoUpdateComponent },
+      { path: 'tecnicos/delete/:id', component: TecnicoDeleteComponent },
 
       { path: 'clientes', component: ClienteListComponent },
-      {path: 'clientes/create', component: ClienteCreateComponent},
-      {path: 'clientes/update/:id', component: ClienteUpdateComponent},
-      {path: 'clientes/delete/:id', component: ClienteDeleteComponent},
+      { path: 'clientes/create', component: ClienteCreateComponent },
+      { path: 'clientes/update/:id', component: ClienteUpdateComponent },
+      { path: 'clientes/delete/:id', component: ClienteDeleteComponent },
 
-
-      {path: 'chamados', component: ChamadoListComponent}
+      { path: 'chamados', component: ChamadoListComponent },
+      { path: 'chamados/create', component: ChamadoCreateComponent },
     ],
   },
 ];
