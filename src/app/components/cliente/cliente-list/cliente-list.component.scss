@@ -1,0 +1,26 @@
+:host{
+  .container{
+   width: 90%;
+   margin: auto;
+  }
+  table {
+    width: 100%;
+  }
+
+  mat-form-field{
+    width: 100%;
+  }
+
+  h1{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  button{
+    width: 100px;
+    height: 25px;
+    margin-bottom: 20px;
+    background-color: #5fa1f1;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
